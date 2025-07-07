@@ -99,112 +99,112 @@ parts:
           - title:
               en: Competition on Price
               it: Concorrenza sui prezzi  
-  # - folder: III
-  #   title: 
-  #     en: Government Intervention, Externalities and Public Goods
-  #     it: Interventi statali, esternalità e beni pubblici
-  #   chapters:
-  #     - folder: 7
-  #       title:
-  #         en: Government Intervention
-  #         it: Interventi statali
-  #       sections:
-  #         - title:
-  #             en: Price Controls
-  #             it: Regolazione dei prezzi
-  #         - title:
-  #             en: Taxes and Subsidies
-  #             it: Tasse e sussidi
-  #         - title:
-  #             en: Import Tariffs
-  #             it: Dazi all'importazione
-  #     - folder: 8
-  #       title:
-  #         en: Externalities and Public Goods
-  #         it: Esternalità e beni pubblici
-  #       sections:
-  #         - title:
-  #             en: Externalities and Efficiency
-  #             it: Esternalità ed efficienza
-  #         - title:
-  #             en: Correcting Externalities
-  #             it: Correzione delle esternalità
-  # - folder: IV
-  #   title: 
-  #     en: Labor Market and Savings Decisions
-  #     it: Mercato del lavoro e scelte di risparmio
-  #   chapters:
-  #     - folder: 9
-  #       title:
-  #         en: Labor Market
-  #         it: Mercato del lavoro
-  #       sections:
-  #         - title:
-  #             en: Labor Supply
-  #             it: Offerta di lavoro
-  #         - title:
-  #             en: Demand and Equilibrium in Perfectly Competitive Labor Markets
-  #             it: Domanda ed equilibrio nei mercati del lavoro concorrenziali
-  #         - title:
-  #             en: Monopsony in Labor Markets
-  #             it: Monopsonio nel mercato del lavoro
-  #     - folder: 10
-  #       title:
-  #         en: Saving Decisions
-  #         it: Scelte di risparmio
-  #       sections:
-  #         - title:
-  #             en: Interest Rate and Present Value
-  #             it: Tasso d'interesse e valore attuale
-  #         - title:
-  #             en: Saving and Borrowing
-  #             it: Risparmio e indebitamento
-  # - folder: V
-  #   title: 
-  #     en: Uncertainty and Information Asymmetry
-  #     it: Incertezza e Asimmetrie informative
-  #   chapters:
-  #     - folder: 11
-  #       title:
-  #         en: Uncertainty and Insurance
-  #         it: Incertezza e assicurazione
-  #       sections:
-  #         - title:
-  #             en: Lotteries, Expected Value and Expected Utility
-  #             it: Lotterie, valore atteso e utilità attesa
-  #         - title:
-  #             en: Insurance Market
-  #             it: Mercato assicurativo
-  #     - folder: 12
-  #       title:
-  #         en: Adverse Selection
-  #         it: Selezione avversa
-  #       sections:
-  #         - title:
-  #             en: xxx
-  #             it: xxx
-  #         - title:
-  #             en: xxx
-  #             it: xxx
-  #     - folder: 13
-  #       title:
-  #         en: Moral Hazard
-  #         it: Moral hazard
-  #       sections:
-  #         - title:
-  #             en: Observable Actions and Risk Neutrality
-  #             it: Azioni osservabili e neutralità al rischio
-  #         - title:
-  #             en: Limited Liability and Risk Aversion
-  #             it: Responsabilità limitata e avversione al rischio
-  #     - folder: 14
-  #       title:
-  #         en: Credit Market
-  #         it: Mercato del credito
-  #       sections:
-  #         - title:
-  #             en: xxx
-  #             it: xxx
-  #         - title:
-  #             en: xxx
-  #             it: xxx
+  - folder: III
+    title: 
+      en: Government Intervention, Externalities and Public Goods
+      it: Interventi statali, esternalità e beni pubblici
+    chapters:
+      - folder: 7
+        title:
+          en: Government Intervention
+          it: Interventi statali
+        sections:
+          - title:
+              en: Price Controls
+              it: Regolazione dei prezzi
+          - title:
+              en: Taxes and Subsidies
+              it: Tasse e sussidi
+          - title:
+              en: Import Tariffs
+              it: Dazi all'importazione
+      - folder: 8
+        title:
+          en: Externalities and Public Goods
+          it: Esternalità e beni pubblici
+        sections:
+          - title:
+              en: Externalities and Efficiency
+              it: Esternalità ed efficienza
+          - title:
+              en: Correcting Externalities
+              it: Correzione delle esternalità
+  - folder: IV
+    title: 
+      en: Labor Market and Savings Decisions
+      it: Mercato del lavoro e scelte di risparmio
+    chapters:
+      - folder: 9
+        title:
+          en: Labor Market
+          it: Mercato del lavoro
+        sections:
+          - title:
+              en: Labor Supply
+              it: Offerta di lavoro
+          - title:
+              en: Demand and Equilibrium in Perfectly Competitive Labor Markets
+              it: Domanda ed equilibrio nei mercati del lavoro concorrenziali
+          - title:
+              en: Monopsony in Labor Markets
+              it: Monopsonio nel mercato del lavoro
+      - folder: 10
+        title:
+          en: Saving Decisions
+          it: Scelte di risparmio
+        sections:
+          - title:
+              en: Interest Rate and Present Value
+              it: Tasso d'interesse e valore attuale
+          - title:
+              en: Saving and Borrowing
+              it: Risparmio e indebitamento
+  - folder: V
+    title: 
+      en: Uncertainty and Information Asymmetry
+      it: Incertezza e Asimmetrie informative
+    chapters:
+      - folder: 11
+        title:
+          en: Uncertainty and Insurance
+          it: Incertezza e assicurazione
+        sections:
+          - title:
+              en: Lotteries, Expected Value and Expected Utility
+              it: Lotterie, valore atteso e utilità attesa
+          - title:
+              en: Insurance Market
+              it: Mercato assicurativo
+      - folder: 12
+        title:
+          en: Adverse Selection
+          it: Selezione avversa
+        sections:
+          - title:
+              en: xxx
+              it: xxx
+          - title:
+              en: xxx
+              it: xxx
+      - folder: 13
+        title:
+          en: Moral Hazard
+          it: Moral hazard
+        sections:
+          - title:
+              en: Observable Actions and Risk Neutrality
+              it: Azioni osservabili e neutralità al rischio
+          - title:
+              en: Limited Liability and Risk Aversion
+              it: Responsabilità limitata e avversione al rischio
+      - folder: 14
+        title:
+          en: Credit Market
+          it: Mercato del credito
+        sections:
+          - title:
+              en: xxx
+              it: xxx
+          - title:
+              en: xxx
+              it: xxx
