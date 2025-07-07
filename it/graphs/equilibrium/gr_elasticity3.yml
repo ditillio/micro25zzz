@@ -1,0 +1,263 @@
+params:
+
+- {name: p, value: 5, min: 2, max: 9}
+
+calcs:
+
+  q1: ((50)-(5)*(params.p))/((2)*(params.p))
+  q2: (15)/(params.p)
+  q3: (10)-(params.p)
+
+# aspectRatio: 2
+
+layout:
+  ThreeHorizontalGraphs:
+
+
+
+
+
+    leftGraph: 
+      xAxis:
+        max: 12
+        ticks: 0
+      yAxis:
+        max: 12
+        ticks: 0
+      label: a
+
+      objects:
+
+        - Label:
+                coordinates: [12, 0]
+                text: "` \\\\text{t} `"
+        - Label:
+                coordinates: [0, 12]
+                text: "` \\\\text{euro/kg}  `"
+
+# demand
+        - Curve:
+            fn: ((50)-(5)*(y))/((2)*(y))
+            ind: y
+            color: Blue
+            label:
+              text: D
+              y: 1.8
+              position: b
+              bgcolor: none
+            strokeWidth: 2
+        - Point:
+            coordinates: [0, 10]
+            color: Blue
+            r: 0
+            droplines:
+              horizontal: "` 10 `"
+        - Point:
+            coordinates: [calcs.q1, params.p]
+            color: Blue
+            r: 3.5
+            droplines:
+              horizontal: params.p.toFixed(1)
+              vertical: calcs.q1.toFixed(2)
+            strokeWidth: 0.5
+
+# # expenditure
+#         - Area:
+#             fn1: (10)-(x)
+#             fn2: (8)
+#             fill: blue
+#             min: 0
+#             max: 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    middleGraph: 
+      xAxis:
+        max: 12
+        ticks: 0
+      yAxis:
+        max: 12
+        ticks: 0
+      label: a
+
+      objects:
+
+        - Label:
+                coordinates: [12, 0]
+                text: "` \\\\text{t} `"
+        - Label:
+                coordinates: [0, 12]
+                text: "` \\\\text{euro/kg}  `"
+
+# demand
+        - Curve:
+            fn: (15)/(x)
+            color: Blue
+            label:
+              text: D
+              x: 11
+              position: b
+              bgcolor: none
+            strokeWidth: 2
+
+        - Point:
+            coordinates: [calcs.q2, params.p]
+            color: Blue
+            r: 3.5
+            droplines:
+              horizontal: params.p.toFixed(1)
+              vertical: calcs.q2.toFixed(2)
+            strokeWidth: 0.5
+
+# # expenditure
+#         - Area:
+#             fn1: (10)-(x)
+#             fn2: (8)
+#             fill: blue
+#             min: 0
+#             max: 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    rightGraph: 
+      xAxis:
+        max: 12
+        ticks: 0
+      yAxis:
+        max: 12
+        ticks: 0
+      label: a
+
+      objects:
+
+        - Label:
+                coordinates: [12, 0]
+                text: "` \\\\text{t} `"
+        - Label:
+                coordinates: [0, 12]
+                text: "` \\\\text{euro/kg}  `"
+
+# demand
+        - Line:
+            point: [0,10]
+            slope: -(1)
+            color: Blue
+            label:
+              text: D
+              x: 9.5
+              position: bl
+              bgcolor: none
+            strokeWidth: 2
+        - Point:
+            coordinates: [0, 10]
+            color: Blue
+            r: 0
+            droplines:
+              horizontal: "` 10 `"
+        - Point:
+            coordinates: [calcs.q3, params.p]
+            color: Blue
+            r: 3.5
+            droplines:
+              horizontal: params.p.toFixed(1)
+              vertical: calcs.q3.toFixed(2)
+            strokeWidth: 0.5
+
+# # expenditure
+#         - Area:
+#             fn1: (10)-(x)
+#             fn2: (8)
+#             fill: blue
+#             min: 0
+#             max: 2
+
+
+
+
+
+
+
+
+    leftControls:
+      title: Pref 1
+      divs:
+      - html: "` BLA `"
+
+      # sliders:
+      #   - param: q
+      #     label: Q
+
+    middleControls:
+      title: Pref 2
+      divs:
+      - html: "` BLA `"
+
+      # checkboxes:
+      # - param: split
+      #   label: "` \\\\text{Riduci quota a 20} \\\\% `"
+
+    rightControls:
+      title: Pref 3
+      divs:
+      - html: "` BLA `"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    explanation:
+      divs:
+        - html: <br>
+        # - html: "`
+        #         Il grafico di sinistra rappresenta l'equilibrio di breve periodo quando 
+        #         nel mercato sono presenti 20 imprese. La quantità scmbiata è pari a 2500
+        #         unità. Ogni impresa produce quindi 125 unità. Dato questo numero di imprese,
+        #         il mercato non può fare di meglio.
+        #         `"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

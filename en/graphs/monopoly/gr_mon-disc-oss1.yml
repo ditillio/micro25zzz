@@ -1,0 +1,328 @@
+
+schema: EconSchema
+
+params:
+
+- {name: Q, value: 0, min: 0, max: 7}
+- {name: disc, value: 0}
+- {name: mc, value: 1.5}
+
+- {name: P, value: 6, min: 2, max: 7}
+- {name: PA, value: 4, min: 1, max: 7}
+- {name: PB, value: 4, min: 1, max: 7}
+
+
+
+calcs:
+
+  PA: " (params.disc == 0) ? (params.P) : (params.PA) "
+  PB: " (params.disc == 0) ? (params.P) : (params.PB) "
+
+  QA: max((0),(8)-(calcs.PA))
+  QB: max((0),(5)-(calcs.PB))
+
+  profit: (500)*(calcs.QA)*((calcs.PA)-(params.mc))+(500)*(calcs.QB)*((calcs.PB)-(params.mc)) # profit
+
+
+aspectRatio: 1.3
+
+layout:
+  TwoHorizontalGraphsPlusSidebar:
+
+    leftGraph:
+      xAxis:
+        max: 7.5
+        ticks: 0
+        title: Gruppo A
+      yAxis:
+        orient: left
+        min: -(5.5)
+        max: 8
+        ticks: 0
+
+
+      objects:
+
+      - Label:
+              coordinates: [7.5, 0]
+              text: "` \\\\text{kg} `"
+              yPixelOffset: 0
+              position: l
+      - Label:
+              coordinates: [0, 8]
+              text: "` \\\\text{euro/kg}  `"
+              xPixelOffset: 0
+
+
+# marginal cost
+      - Line:
+          yIntercept: params.mc
+          color: Red
+          strokeWidth: 1
+          position: l
+          label:
+            text: MC
+            x: 7.3
+
+# price line
+      - Line:
+          yIntercept: calcs.PA
+          color: Green
+          strokeWidth: 1
+          position: l
+          label:
+            text: P
+            x: 7.5
+          show: params.disc == 0
+          drag:
+            - vertical: P
+      - Line:
+          yIntercept: calcs.PA
+          color: Green
+          strokeWidth: 1
+          position: l
+          label:
+            text: P_A
+            x: 7.5
+          show: params.disc == 1
+          drag:
+            - vertical: PA
+
+# individual demand group A
+      - Point: {coordinates: [0.96, 7], droplines: {vertical: 1, horizontal: 7}, color: Blue, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [2, 6], droplines: {vertical: 2, horizontal: 6}, color: Blue, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [3, 5], droplines: {vertical: 3, horizontal: 5}, color: Blue, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [4, 4], droplines: {vertical: 4, horizontal: 4}, color: Blue, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [5, 3], droplines: {vertical: 5, horizontal: 3}, color: Blue, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [6, 2], droplines: {vertical: 6, horizontal: 2}, color: Blue, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [7, 1], droplines: {vertical: 7, horizontal: 1}, color: Blue, r: 3, strokeWidth: 0.5}
+
+# marginal revenue group A
+      - Point: {coordinates: [1.04, 7], color: Green, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [2, 5], color: Green, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [3, 3], color: Green, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [4, 1], color: Green, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [5, -1], droplines: {vertical: 5, horizontal: -1}, color: Green, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [6, -3], droplines: {vertical: 6, horizontal: -3}, color: Green, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [7, -5], droplines: {vertical: 7, horizontal: -5}, color: Green, r: 3, strokeWidth: 0.5}
+
+# profit from group A
+      - Rectangle: {x1: 0, y1: params.mc, x2: calcs.QA, y2: calcs.PA, fill: green}
+
+# evaluation
+      - Label:
+          coordinates: [5,7]
+          text: "` \\\\LARGE\\\\text{BINGO!} `" 
+          position: c
+          bgcolor: none
+          color: green
+          show: (params.disc == 0 && calcs.PA == 4) || (params.disc == 1 && calcs.PA == 5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    rightGraph:
+      xAxis:
+        max: 7.5
+        ticks: 0
+        title: Gruppo B
+      yAxis:
+        orient: left
+        min: -(5.5)
+        max: 8
+        ticks: 0
+
+
+      objects:
+
+      - Label:
+              coordinates: [7.5, 0]
+              text: "` \\\\text{kg} `"
+              yPixelOffset: 0
+              position: l
+      - Label:
+              coordinates: [0, 8]
+              text: "` \\\\text{euro/kg}  `"
+              xPixelOffset: 0
+
+
+# marginal cost
+      - Line:
+          yIntercept: params.mc
+          color: Red
+          strokeWidth: 1
+          position: l
+          label:
+            text: MC
+            x: 7.3
+
+# price line
+      - Line:
+          yIntercept: calcs.PB
+          color: Green
+          strokeWidth: 1
+          position: l
+          label:
+            text: P
+            x: 7.5
+          show: params.disc == 0
+          drag:
+            - vertical: P
+      - Line:
+          yIntercept: calcs.PB
+          color: Green
+          strokeWidth: 1
+          position: l
+          label:
+            text: P_B
+            x: 7.5
+          show: params.disc == 1
+          drag:
+            - vertical: PB
+
+
+# individual demand group B
+      - Point: {coordinates: [0.96, 4], droplines: {vertical: 1, horizontal: 4}, color: Blue, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [2, 3], droplines: {vertical: 2, horizontal: 3}, color: Blue, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [3, 2], droplines: {vertical: 3, horizontal: 2}, color: Blue, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [4, 1], droplines: {vertical: 4, horizontal: 1}, color: Blue, r: 3, strokeWidth: 0.5}
+
+# marginal revenue group B
+      - Point: {coordinates: [1.04, 4], color: Green, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [2, 2], color: Green, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [3, 0], color: Green, r: 3, strokeWidth: 0.5}
+      - Point: {coordinates: [4, -2], droplines: {vertical: 4, horizontal: -2}, color: Green, r: 3, strokeWidth: 0.5}
+
+# profit from group B
+      - Rectangle: {x1: 0, y1: params.mc, x2: calcs.QB, y2: calcs.PB, fill: green}
+
+# evaluation
+      - Label:
+          coordinates: [5,7]
+          text: "` \\\\LARGE\\\\text{BINGO!} `" 
+          position: c
+          bgcolor: none
+          color: green
+          show: (params.disc == 0 && calcs.PB == 4) || (params.disc == 1 && calcs.PB == 3)
+
+
+
+
+
+
+
+
+
+    sidebar:
+      controls:
+
+      - title: Price Discrimination Based on Observable Characteristics – Indivisible Good
+
+        # description: Choose the type of compensation to display 
+        #               the budget constraint and the optimal choice corresponding 
+        #               to the new prices and compensated income.
+
+        # divs:
+        #   - html: "` profit = ${calcs.profit} `"
+
+        radioGroup:
+          param: disc
+          options:
+            - Choose uniform price
+            - Choose different prices by group
+
+
+      - title: Uniform Price
+        description: Find the price (the same for both groups) that maximizes the monopolist's profit.
+        sliders:
+        - param: P
+          label: "` P `"
+        divs:
+          - html: "` At this price ($P=${params.P}$), profit equals ${calcs.profit}.
+                      A higher profit can be obtained by choosing a different uniform price.
+                       `"
+            show: params.P !== 4
+          - html: "` At this price ($P=${params.P}$), profit equals ${calcs.profit}.
+                      A higher profit cannot be obtained by choosing a different uniform price.
+                      However, a higher profit can be achieved by choosing different prices for the two groups!
+                       `"
+            show: params.P == 4
+        show: params.disc == 0
+
+
+      - title: Separate Prices by Group
+        description: Find the prices (which may differ for the two groups) that maximize the monopolist's profit.
+        sliders:
+        - param: PA
+          label: "` P_A `"
+        - param: PB
+          label: "` P_B `"
+        divs:
+          - html: "` At these prices ($P_A=${params.PA}$ and $P_B=${params.PB}$), profit 
+                      equals ${calcs.profit}.
+                      A higher profit can be obtained by choosing different prices.
+                       `"
+            show: params.PA !== 5 && params.PB !== 3
+          - html: "` At these prices ($P_A=${params.PA}$ and $P_B=${params.PB}$), profit 
+                      equals ${calcs.profit}.
+                      A higher profit cannot be obtained by changing the price for group A.
+                      However, a higher profit can be obtained by changing the price for group B!
+                       `"
+            show: params.PA == 5 && params.PB !== 3
+          - html: "` At these prices ($P_A=${params.PA}$ and $P_B=${params.PB}$), profit 
+                      equals ${calcs.profit}.
+                      A higher profit cannot be obtained by changing the price for group B.
+                      However, a higher profit can be obtained by changing the price for group A!
+                       `"
+            show: params.PA !== 5 && params.PB == 3
+          - html: "` At these prices ($P_A=${params.PA}$ and $P_B=${params.PB}$), profit 
+                      equals ${calcs.profit}.
+                      No higher profit can be obtained!
+                       `"
+            show: params.PA == 5 && params.PB == 3
+        show: params.disc == 1
+
+
+
+
+
+
+
+
+    explanation:
+      divs:
+        - html: "` The demand function is represented by the blue dots. `"
+        - html: "` The marginal revenue function is represented by the green dots. `"
+        - html: "` At price $P=${params.P}$, each of the 500 consumers in group A
+                  demands ${calcs.QA} units, and each of the 500 consumers in group B 
+                  demands ${calcs.QB} units. Profit is therefore equal to 
+                    $$
+                    500\\\\times (${params.P}-${params.mc})\\\\times ${calcs.QA}
+                    +
+                    500\\\\times (${params.P}-${params.mc})\\\\times ${calcs.QB}=${calcs.profit}
+                    $$ `"
+          show: params.disc == 0
+        - html: "` At prices $P_A=${params.PA}$ and $P_B=${params.PB}$, each of the 500
+                  consumers in group A
+                  demands ${calcs.QA} units, and each of the 500 consumers in group B 
+                  demands ${calcs.QB} units. Profit is therefore equal to 
+                    $$
+                    500\\\\times (${params.P}-${params.mc})\\\\times ${calcs.QA}
+                    +
+                    500\\\\times (${params.P}-${params.mc})\\\\times ${calcs.QB}=${calcs.profit}
+                    $$ `"
+          show: params.disc == 1
+
+
+
+
