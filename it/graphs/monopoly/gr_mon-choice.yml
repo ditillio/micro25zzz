@@ -3,7 +3,7 @@ schema: EconSchema
 version: 1
 params:
 
-- {name: Q, value: 1500, min: 0, max: 4000, round: 100}
+- {name: Q, value: 2000, min: 0, max: 4000, round: 100}
 
 - {name: tgl, value: 1000} #  half-length of tangent line
 
@@ -207,29 +207,30 @@ layout:
             horizontal: calcs.MR.toFixed(2)
           strokeWidth: 0.5
 
-# monopolist revenue
+# monopolist profit/loss
       - Rectangle:
           x1: 0
+          y1: 2
           x2: params.Q
-          y1: 0
-          y2: calcs.P
+          y2: (5)-(params.Q)/(1000)
           fill: green
-          show: params.rev == 0
-      - Area:
-          fn1: (5)-(x)/(500)
-          fn2: (0)
-          fill: green
-          min: 0
-          max: min(2500,(params.Q))
-          show: params.rev == 1
-      - Area:
-          fn1: (5)-(x)/(500)
-          fn2: (0)
-          fill: darkgray
-          opacity: 0.5
-          min: 2500
-          max: params.Q
-          show: params.rev == 1 && params.Q > 2500
+          show: params.Q < 3000
+      - Rectangle:
+          x1: 0
+          y1: 2
+          x2: params.Q
+          y2: (5)-(params.Q)/(1000)
+          fill: red
+          show: params.Q > 3000
+
+# evaluation
+      - Label:
+          coordinates: [3400,4]
+          text: "` \\\\LARGE\\\\text{BINGO!} `" 
+          position: c
+          bgcolor: none
+          color: green
+          show: params.Q == 1500
 
 
 
@@ -240,9 +241,9 @@ layout:
 
       - title: Scelta ottima del monopolista
 
-        # sliders:
-        # - param: Q
-        #   label: Q
+        sliders:
+        - param: Q
+          label: Q
 
         # radioGroup:
         #   param: rev
@@ -258,22 +259,41 @@ layout:
         # - param: showDWL
         #   label: "` \\\\text{Mostra perdita secca} `"
 
-        # divs:
-        # - html: <br>
-        # - html: "` La curva di domanda di mercato è
-        #             $$
-        #             P = 5 - Q/1000
-        #             $$
-        #           Il ricavo del monopolista, come funzione della quantità prodotta,
-        #           è quindi 
-        #             $$
-        #             R = 5Q - Q^2/1000
-        #             $$
-        #           mentre il ricavo marginale è
-        #             $$
-        #             MR = 5 - Q/500
-        #             $$
-        #              `"
+        divs:
+        - html: <br>
+        - html: "` La curva di domanda di mercato è
+                    $$
+                    P = 5 - Q/1000
+                    $$
+                  Il ricavo del monopolista è quindi 
+                    $$
+                    R = 5Q - Q^2/1000
+                    $$
+                  da cui il ricavo marginale è
+                    $$
+                    MR = 5 - Q/500
+                    $$
+                     `"
+        - html: "` Dato che il costo marginale è $MC=2$,
+                  in corrispondenza della quantità $Q=${params.Q}$ si ha $MR > MC$ e quindi il profitto
+                  del monopolista (area verde) non è massimo. Il monopolista ha un incentivo ad aumentare
+                  la quantità prodotta (equivalentemente, a ridurre il prezzo).
+                     `"
+          show: params.Q < 1500
+
+        - html: "` Dato che il costo marginale è $MC=2$,
+                  in corrispondenza della quantità $Q=${params.Q}$ si ha $MR < MC$ e quindi il profitto
+                  del monopolista (area verde) non è massimo. Il monopolista ha un incentivo a ridurre
+                  la quantità prodotta (equivalentemente, ad aumentare il prezzo).
+                     `"
+          show: params.Q > 1500
+
+        - html: "` Dato che il costo marginale è $MC=2$,
+                  in corrispondenza della quantità $Q=${params.Q}$ si ha $MR = MC$ e quindi il profitto
+                  del monopolista (area verde) è massimo.
+                     `"
+          show: params.Q == 1500
+
 
     # explanation:
     #   divs:
