@@ -177,19 +177,19 @@ parts:
               it: Mercato assicurativo
       - folder: 12
         title:
-          en: Adverse Selection
-          it: Selezione avversa
+          en: "Asymmetric Information: Adverse Selection"
+          it: "Informazione asimmetrica: selezione avversa"
         sections:
           - title:
-              en: xxx
-              it: xxx
+              en: Adverse Selection in the Insurance Market
+              it: Selezione avversa  nel mercato assicurativo
           - title:
-              en: xxx
-              it: xxx
+              en: Adverse Selection in the Labor Market
+              it: Selezione avversa nel mercato del lavoro
       - folder: 13
         title:
-          en: Moral Hazard
-          it: Moral hazard
+          en: "Asymmetric Information: Moral Hazard"
+          it: "Informazione asimmetrica: moral hazard"
         sections:
           - title:
               en: Observable Actions and Risk Neutrality
@@ -199,8 +199,8 @@ parts:
               it: Responsabilità limitata e avversione al rischio
       - folder: 14
         title:
-          en: Credit Market
-          it: Mercato del credito
+          en: Asymmetric Information in the Credit Market
+          it: Informazione asimmetrica nel mercato del credito
         sections:
           - title:
               en: xxx
