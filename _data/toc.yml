@@ -189,7 +189,7 @@ parts:
       - folder: 13
         title:
           en: "Asymmetric Information: Moral Hazard"
-          it: "Informazione asimmetrica: moral hazard"
+          it: "Informazione asimmetrica: azzardo morale"
         sections:
           - title:
               en: Observable Actions and Risk Neutrality
