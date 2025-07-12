@@ -162,12 +162,9 @@ layout:
 
       controls:
 
-      - title: Valore atteso, utilità attesa e variabilità dei payoff
-        description: Muovere i primi due cursori per modificare i parametri della funzione di 
-                    produzione. Muovere il terzo cursore o trascinare il punto blu nel grafico
-                    per vedere come,
-                    dati i parametri scelti, la quantità di output varia al variare
-                     della quantità di input.
+      - title: Variabilità dei payoff
+
+        # description: Muovere ...
 
         radioGroup:
           param: which
@@ -181,10 +178,15 @@ layout:
 
         divs:
         - html: <br>
-        - html: "`  $$
+        - html: "`  Quando $W_1=${params.w1}$, per avere $EP=50$ dobbiamo avere
+                    $
+                    W_2=${calcs.w2ep}
+                    $
+                    $$
                     EP=${params.p1}\\\\times ${params.w1}+
                         ${calcs.p2}\\\\times ${calcs.w2ep} = ${params.ep}
                     $$
+                    L'utilità attesa è quindi
                     $$
                     EU=${params.p1.toFixed(1)}\\\\times ${calcs.u1.toFixed(2)}+
                     ${calcs.p2.toFixed(1)}\\\\times ${calcs.u2ep.toFixed(2)} = ${calcs.EUep.toFixed(2)}
@@ -192,6 +194,21 @@ layout:
                       `"
           show: params.which == 0
 
+        - html: "`  Quando $W_1=${params.w1}$, per avere $EU=5$ dobbiamo avere
+                    $
+                    W_2=${calcs.w2eu.toFixed(2)}
+                    $
+                    $$
+                    EU=${params.p1}\\\\times \\\\sqrt{${params.w1}}+
+                        ${calcs.p2}\\\\times \\\\sqrt{${calcs.w2eu.toFixed(2)}} = ${params.eu}
+                    $$
+                    Il payoff atteso è quindi
+                    $$
+                    EP=${params.p1.toFixed(1)}\\\\times ${params.w1}+
+                    ${calcs.p2.toFixed(1)}\\\\times ${calcs.w2eu.toFixed(2)} = ${calcs.EPeu.toFixed(2)}
+                    $$
+                      `"
+          show: params.which == 1
 
 
 
@@ -199,23 +216,15 @@ layout:
 
     explanation:
       divs:
-        - html: "` La lotteria
-                    $$
-                    \\\\text{$W_1=${params.w1}$ con probabilità $0.5$}
-                    \\\\qquad
-                    \\\\text{$W_2=${calcs.w2ep}$ con probabilità $0.5$}
-                    $$
-                    ha valore atteso $
-                    EP=${params.p1}\\\\times ${params.w1}+
-                    ${calcs.p2}\\\\times ${calcs.w2ep} = ${params.ep}$
-                    e dà utilità attesa
-                    $$
-                    EU=${params.p1}\\\\times ${params.w1}+
-                    ${calcs.p2}\\\\times ${calcs.w2ep} = ${params.ep}$
-                    $$
+        - html: "` A parità di payoff atteso ($EP=50$), più $W_1$ e $W_2$ sono vicini tra loro, maggiore
+                  è l'utilità attesa.
                       `"
           show: params.which == 0
 
+        - html: "` A parità di utilità atteso ($EU=5$), più $W_1$ e $W_2$ sono vicini tra loro, minore
+                  è il payoff atteso.
+                      `"
+          show: params.which == 1
 
 
 
