@@ -66,7 +66,7 @@ layout:
             text: "` \\\\pi `"
         - Label:
             coordinates: [0, 11000]
-            text: "` \\\\text{euro/polizza}  `"
+            text: "` \\\\text{euro/policy}  `"
 
 # WTP curve
         - Curve:
@@ -121,10 +121,10 @@ layout:
 
         - Label:
             coordinates: [1500, 0]
-            text: "` \\\\text{polizze} `"
+            text: "` \\\\text{policies} `"
         - Label:
             coordinates: [0, 11000]
-            text: "` \\\\text{euro/polizza}  `"
+            text: "` \\\\text{euro/policy}  `"
 
 
 
@@ -178,7 +178,7 @@ layout:
 
       controls:
 
-      - title: Equilibrio concorrenziale nel mercato assicurativo
+      - title: Competitive Equilibrium in Insurance Market
         description: Muovere il cursore per ... 
 
         # radioGroup:

@@ -48,7 +48,7 @@ layout:
                 text: "` \\\\text{Payoff} `"
         - Label:
                 coordinates: [0, 11]
-                text: "` \\\\text{Utilità}  `"
+                text: "` \\\\text{Utility}  `"
 
 # bernoulli utility function
 
@@ -162,18 +162,14 @@ layout:
 
       controls:
 
-      - title: Valore atteso, utilità attesa e variabilità dei payoff
-        description: Muovere i primi due cursori per modificare i parametri della funzione di 
-                    produzione. Muovere il terzo cursore o trascinare il punto blu nel grafico
-                    per vedere come,
-                    dati i parametri scelti, la quantità di output varia al variare
-                     della quantità di input.
+      - title: Expected value, expected utility, and payoff variability
+        description: Move the first two sliders to adjust the parameters of the production function. Move the third slider or drag the blue point in the graph to see how, given the selected parameters, the output quantity changes as the input quantity varies.
 
         radioGroup:
           param: which
           options:
-            - Mantieni 𝐸𝑃 = 50 costante
-            - Mantieni 𝐸𝑈 = 5 costante
+            - Keep 𝐸𝑃 = 50 constant
+            - Keep 𝐸𝑈 = 5 constant
 
         sliders:
         - param: w1
@@ -199,35 +195,21 @@ layout:
 
     explanation:
       divs:
-        - html: "` La lotteria
+        - html: "` The lottery
                     $$
-                    \\\\text{$W_1=${params.w1}$ con probabilità $0.5$}
+                    \\\\text{$W_1=${params.w1}$ with probability $0.5$}
                     \\\\qquad
-                    \\\\text{$W_2=${calcs.w2ep}$ con probabilità $0.5$}
+                    \\\\text{$W_2=${calcs.w2ep}$ with probability $0.5$}
                     $$
-                    ha valore atteso $
+                    has expected value
+                    $$
                     EP=${params.p1}\\\\times ${params.w1}+
-                    ${calcs.p2}\\\\times ${calcs.w2ep} = ${params.ep}$
-                    e dà utilità attesa
+                    ${calcs.p2}\\\\times ${calcs.w2ep} = ${params.ep}
+                    $$
+                    and expected utility
                     $$
                     EU=${params.p1}\\\\times ${params.w1}+
-                    ${calcs.p2}\\\\times ${calcs.w2ep} = ${params.ep}$
+                    ${calcs.p2}\\\\times ${calcs.w2ep} = ${params.ep}
                     $$
                       `"
           show: params.which == 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
