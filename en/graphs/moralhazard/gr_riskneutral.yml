@@ -68,10 +68,10 @@ layout:
 
         - Label:
                 coordinates: [1000, 0]
-                text: "` \\\\text{Salario} `"
+                text: "` \\\\text{Salary} `"
         - Label:
                 coordinates: [0, calcs.uMax]
-                text: "` \\\\text{Utilità}  `"
+                text: "` \\\\text{Utility}  `"
 
 # bernoulli utility function with high effort (neutral)
         - Line:
@@ -212,12 +212,12 @@ layout:
             strokeWidth: 1
         - Label:
             coordinates: [300, ((calcs.uMax)/(35))*33.7]
-            text: \text{\small CONTRATTO DI LAVORO}
+            text: \text{\small LABOR CONTRACT}
             bgcolor: none
 
         - Label:
             coordinates: [120, ((calcs.uMax)/(35))*31.2]
-            text: "` \\\\text{\\\\small Salario base: } \\\\color{Blue} W_0=${params.w} `"
+            text: "` \\\\text{\\\\small Base Salary: } \\\\color{Blue} W_0=${params.w} `"
             bgcolor: none
             position: l
         - Label:
@@ -227,7 +227,7 @@ layout:
             position: l
         - Label:
             coordinates: [90, ((calcs.uMax)/(35))*27]
-            text: "` \\\\text{\\\\small Firma del lavoratore: } \\\\underline{\\\\qquad}  `"
+            text: "` \\\\text{\\\\small Worker Signature: } \\\\underline{\\\\qquad}  `"
             bgcolor: none
             position: l
         - Label:
@@ -277,11 +277,11 @@ layout:
 
       controls:
 
-      - title: Azioni non osservabili - agente neutrale al rischio
-        description: Muovere i cursori fino a individuare il contratto che massimizza il profitto dell'impresa.
+      - title: "Unobservable Actions: Risk-Neutral Agent"
+        description: Move the sliders to identify the contract that maximizes the firm's profit.
         sliders:
         - param: w
-          label: \text{Salario base } W_0
+          label: \text{Base Salary } W_0
         - param: b
           label: \text{Bonus } B
         divs:

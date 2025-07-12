@@ -69,10 +69,10 @@ layout:
 
         - Label:
                 coordinates: [1000, 0]
-                text: "` \\\\text{Salario} `"
+                text: "` \\\\text{Salary} `"
         - Label:
                 coordinates: [0, calcs.uMax]
-                text: "` \\\\text{Utilità}  `"
+                text: "` \\\\text{Utility}  `"
 
 # bernoulli utility function with high effort (neutral)
         - Line:
@@ -243,16 +243,16 @@ layout:
             strokeWidth: 1
         - Label:
             coordinates: [300, ((calcs.uMax)/(35))*33.7]
-            text: \text{\small CONTRATTO DI LAVORO}
+            text: \text{\small LABOR CONTRACT}
             bgcolor: none
         - Label:
             coordinates: [120, ((calcs.uMax)/(35))*32]
-            text: "` \\\\text{\\\\small Impegno minimo: } \\\\color{Blue} e=${params.effort} `"
+            text: "` \\\\text{\\\\small Minimum Effort: } \\\\color{Blue} e=${params.effort} `"
             bgcolor: none
             position: l
         - Label:
             coordinates: [120, ((calcs.uMax)/(35))*30.5]
-            text: "` \\\\text{\\\\small Salario base: } \\\\color{Blue} W_0=${params.w} `"
+            text: "` \\\\text{\\\\small Base Salary: } \\\\color{Blue} W_0=${params.w} `"
             bgcolor: none
             position: l
         - Label:
@@ -262,7 +262,7 @@ layout:
             position: l
         - Label:
             coordinates: [90, ((calcs.uMax)/(35))*27]
-            text: "` \\\\text{\\\\small Firma del lavoratore: } \\\\underline{\\\\qquad}  `"
+            text: "` \\\\text{\\\\small Worker Signature: } \\\\underline{\\\\qquad}  `"
             bgcolor: none
             position: l
         - Label:
@@ -318,22 +318,22 @@ layout:
 
       controls:
 
-      - title: Azioni osservabili e contratto First Best
-        description: Selezionare l'atteggiamento verso il rischio del lavoratore.
+      - title: Observable Actions and First-Best Contract
+        description: Select the worker's attitude toward risk.
 
         radioGroup:
           param: riskav
           options:
-            - Lavoratore neutrale al rischio
-            - Lavoratore avverso al rischio
+            - Risk-Neutral Worker
+            - Risk-Averse Worker
 
-      - title: Lavoratore neutrale al rischio
-        description: Muovere i cursori fino a individuare il contratto che massimizza il profitto dell'impresa.
+      - title: Risk-Neutral Worker
+        description: Move the sliders to identify the contract that maximizes the firm's profit.
         sliders:
         - param: effort
-          label: \text{Impegno min. } e
+          label: \text{Min. Effort } e
         - param: w
-          label: \text{Salario base } W_0
+          label: \text{Base Salary } W_0
         - param: b
           label: \text{Bonus } B
         divs:
@@ -346,15 +346,15 @@ layout:
 
 
 
-      - title: Lavoratore avverso al rischio
-        description: Muovere i cursori fino a individuare il contratto che massimizza il profitto dell'impresa.
+      - title: Risk-Averse Worker
+        description: Move the sliders to identify the contract that maximizes the firm's profit.
         sliders:
         - param: effort
-          label: \text{Impegno min.}
+          label: \text{Min. Effort } e
         - param: w
-          label: \text{Salario base}
+          label: \text{Base Salary } W_0
         - param: b
-          label: \text{Bonus}
+          label: \text{Bonus} B
         divs:
         - html: <br>
         - html: "` 
@@ -366,28 +366,28 @@ layout:
 
     explanation:
       divs:
-        - html: "` Il contratto specifica un livello di impegno minimo pari a zero.
-                    Se firma il contratto, il lavoratore può quindi scegliere se
-                    impegnarsi e ottenere un'utilità attesa pari all'altezza del
-                    punto $H$, o non impegnarsi e ottenere un'utilità attesa pari
-                    all'altezza del punto $L$.
+        - html: "` The contract specifies a minimum effort level of zero.
+                    If the worker signs the contract, they can then choose whether
+                    to exert effort and obtain expected utility equal to the height of
+                    point $H$, or not exert effort and obtain expected utility equal
+                    to the height of point $L$.
                       `"
           show: params.effort == 0
-        - html: "` In entrambi i casi, però, l'utilità attesa è minore dell'utilità
-                   di riserva del lavoratore (i punti $L$ e $H$ si trovano entrambi
-                   sotto la retta verde). Il lavoratore, quindi, non firma il contratto,
-                   e il profitto dell'impresa è quello derivante dalla sua opzione alternativa,
-                   ovvero $\\\\underline\\\\Pi$.
+        - html: "` In both cases, however, expected utility is lower than the worker’s
+                   reservation utility (points $L$ and $H$ both lie below the green line).
+                   The worker therefore does not sign the contract,
+                   and the firm’s profit equals that from its outside option,
+                   namely $\\\\underline\\\\Pi$.
                       `"
           show: params.effort == 0 && calcs.euH < calcs.ubar && calcs.euL < calcs.ubar
-        - html: "` In almeno uno dei due casi, l'utilità attesa è almeno pari all'utilità
-                     di riserva del lavoratore (i punti $L$ e $H$ non si trovano entrambi
-                     sotto la retta verde). Il lavoratore, quindi, firma il contratto.
+        - html: "` In at least one of the two cases, expected utility is at least equal
+                     to the worker’s reservation utility (points $L$ and $H$ do not both
+                     lie below the green line). The worker therefore signs the contract.
                         `"
           show: params.effort == 0 && calcs.eu >= calcs.ubar
-        - html: "` Una volta firmato il contratto, il lavoratore decide di impegnarsi
-                    (l'altezza del punto $H$ non è minore di quella del punto $L$).
-                    Il profitto dell'impresa è quindi
+        - html: "` Once the contract is signed, the worker chooses to exert effort
+                    (the height of point $H$ is not lower than that of point $L$).
+                    The firm’s profit is therefore
                     $$
                     0.25\\\\times(${params.x1}-${calcs.w1})+
                     0.75\\\\times(${params.x2}-${calcs.w2})=
@@ -395,9 +395,9 @@ layout:
                     $$
                         `"
           show: params.effort == 0 && calcs.eu >= calcs.ubar && calcs.euH >= calcs.euL
-        - html: "` Una volta firmato il contratto, il lavoratore decide di non impegnarsi
-                    (l'altezza del punto $H$ è minore di quella del punto $L$).
-                    Il profitto dell'impresa è quindi
+        - html: "` Once the contract is signed, the worker chooses not to exert effort
+                    (the height of point $H$ is lower than that of point $L$).
+                    The firm’s profit is therefore
                     $$
                     0.75\\\\times(${params.x1}-${calcs.w1})+
                     0.25\\\\times(${params.x2}-${calcs.w2})=
@@ -409,22 +409,21 @@ layout:
 
 
 
-        - html: "` Il contratto specifica che l'impegno del lavoratore deve essere alto.
-                    Se firma il contratto, il lavoratore ottiene quindi un'utilità
-                    attesa pari all'altezza del punto $H$.
+        - html: "` The contract specifies that the worker’s effort must be high.
+                    If the worker signs the contract, they obtain expected utility
+                    equal to the height of point $H$.
                       `"
           show: params.effort == 1
-        - html: "` Tale utilità attesa è però minore della sua utilità di riserva
-                   (il punto $H$ si trova sotto la retta verde).
-                    Il lavoratore, quindi, non firma il contratto, e il profitto
-                    dell'impresa è quello derivante dalla sua opzione alternativa,
-                    ovvero $\\\\underline\\\\Pi$.
+        - html: "` That expected utility is lower than their reservation utility
+                   (point $H$ lies below the green line).
+                    The worker therefore does not sign the contract, and the firm’s
+                    profit equals that from its outside option,
+                    namely $\\\\underline\\\\Pi$.
                       `"
           show: params.effort == 1 && calcs.euH < calcs.ubar
-        - html: "` Tale utilità attesa non è minore della sua utilità di riserva
-                   (il punto $H$ non si trova sotto la retta verde).
-                    Il lavoratore, quindi, firma il contratto, e il profitto
-                    dell'impresa è
+        - html: "` That expected utility is not lower than their reservation utility
+                   (point $H$ does not lie below the green line).
+                    The worker therefore signs the contract, and the firm’s profit is
                     $$
                     0.25\\\\times(${params.x1}-${calcs.w1})+
                     0.75\\\\times(${params.x2}-${calcs.w2})=

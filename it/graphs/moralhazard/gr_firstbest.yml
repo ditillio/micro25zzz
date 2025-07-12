@@ -350,11 +350,11 @@ layout:
         description: Muovere i cursori fino a individuare il contratto che massimizza il profitto dell'impresa.
         sliders:
         - param: effort
-          label: \text{Impegno min.}
+          label: \text{Impegno min. } e
         - param: w
-          label: \text{Salario base}
+          label: \text{Salario base } W_0
         - param: b
-          label: \text{Bonus}
+          label: \text{Bonus} B
         divs:
         - html: <br>
         - html: "` 
