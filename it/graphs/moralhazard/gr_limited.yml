@@ -307,7 +307,7 @@ layout:
       controls:
 
       - title: Contratto second-best con responsabilità limitata
-        description: Muovere i cursori fino a individuare il contratto che massimizza il profitto dell'impresa.
+        description: Muovere i cursori fino a individuare il contratto che massimizza il profitto dell'impresa. Il salario base non può essere minore di 100 euro. 
         sliders:
         - param: w
           label: \text{Salario base } W_0
