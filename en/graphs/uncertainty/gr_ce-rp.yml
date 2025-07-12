@@ -40,7 +40,7 @@ layout:
 
         - Label:
             coordinates: [11500, 0]
-            text: "` \\\\text{Wealth} `"
+            text: "` \\\\text{Payoff} `"
         - Label:
             coordinates: [0, calcs.maxU]
             text: "` \\\\text{Utility}  `"
